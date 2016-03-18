@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 18 Mar 2016 12:00:00 +0000
+Source: icp12-qt4
+Binary: icp12-qt4
+Architecture: source all
+Version: 0.0.7-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: Chris <roossien@gmail.com>
+Changed-By: Chris <roossien@gmail.com>
+Description:
+ icp12-qt4  - This is the qt4 support for iCP12 IO Control
+Changes:
+ icp12-qt4 (0.0.7-0ubuntu1) unstable; urgency=low
+ .
+   * New release version
+Checksums-Sha1:
+ 0a271e0c00e93342826eb587ba8a3d2676e4ce55 544 icp12-qt4_0.0.7-0ubuntu1.dsc
+ a3894b60c16f4c8e137dc2fa88cebba651191169 797 icp12-qt4_0.0.7-0ubuntu1.tar.gz
+ 2416a1bb08539fa5a7d2163c1b9423086903dde6 1286 icp12-qt4_0.0.7-0ubuntu1_all.deb
+Checksums-Sha256:
+ b4ee9ec5ff311b3cc3f880e17e04c07b736aa4046813e5cc469448b4a7825e22 544 icp12-qt4_0.0.7-0ubuntu1.dsc
+ 0e4f267acafc7a5858d49d022df3ee61e992f196aa4727d3e7ec13b75d8c7f95 797 icp12-qt4_0.0.7-0ubuntu1.tar.gz
+ 06d23a8d4a01509f63186e2064c5a561d26f4e44f9e8694c3bcc235fe085e447 1286 icp12-qt4_0.0.7-0ubuntu1_all.deb
+Files:
+ c46a591c70c4f1c75b3ebacd2ab2e542 544 contrib/electronics optional icp12-qt4_0.0.7-0ubuntu1.dsc
+ ebc8e5c87190d0454bc445c53267fef8 797 contrib/electronics optional icp12-qt4_0.0.7-0ubuntu1.tar.gz
+ 2f5fd82fe680b98c23d7b97cd5c6c4df 1286 contrib/electronics optional icp12-qt4_0.0.7-0ubuntu1_all.deb

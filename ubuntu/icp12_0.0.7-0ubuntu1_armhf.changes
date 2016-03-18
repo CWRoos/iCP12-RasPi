@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 18 Mar 2016 12:00:00 +0000
+Source: icp12
+Binary: icp12
+Architecture: source all
+Version: 0.0.7-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: Chris <roossien@gmail.com>
+Changed-By: Chris <roossien@gmail.com>
+Description:
+ icp12      - iCP12 IO Control
+Changes:
+ icp12 (0.0.7-0ubuntu1) unstable; urgency=low
+ .
+   * New release version
+Checksums-Sha1:
+ 18c72eced69672ff4a8bea93ff74b2bdfb90fb48 977 icp12_0.0.7-0ubuntu1.dsc
+ fd9c9e7fbfec199f67f55bd57641549afa47cb3d 1107 icp12_0.0.7-0ubuntu1.diff.gz
+ 7b11ae78ba38bf0f48b22dd5b44857c1d1fc0999 361158 icp12_0.0.7-0ubuntu1_all.deb
+Checksums-Sha256:
+ 9fea68f5e8078f8ce01c2bddd5606cf84ced929e3658343ee945c158fc25fbf2 977 icp12_0.0.7-0ubuntu1.dsc
+ 53316a251a1a1e7da4dec45a8ab0b676c2fc1a6f68dc26fe1ba84ef8c434586f 1107 icp12_0.0.7-0ubuntu1.diff.gz
+ f08ed2dfb3b36ae81bdf72b325ef30f14ecebb81508ee1da4b15bda7ec2146fb 361158 icp12_0.0.7-0ubuntu1_all.deb
+Files:
+ a92ac959e9cf964a650a46440e03e3ef 977 contrib/electronics optional icp12_0.0.7-0ubuntu1.dsc
+ dad5da3d7122bd2019279ee47874b2df 1107 contrib/electronics optional icp12_0.0.7-0ubuntu1.diff.gz
+ 0c9e81c546d2d8749912ba1794fd9a82 361158 contrib/electronics optional icp12_0.0.7-0ubuntu1_all.deb
