@@ -1,0 +1,40 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,113,92.8571)
+  Icon = Picture["iCP12.png"]
+  { TabStrip1 TabStrip
+    MoveScaled(0,0,118,92.8571)
+    Count = 4
+    Index = 0
+    Text = ("Help Home")
+    { PictureBox4 PictureBox
+      MoveScaled(18,48,75,35)
+      Picture = Picture["iCP12layout.jpg"]
+    }
+    { Label1 Label
+      MoveScaled(8,3,91,42)
+      Text = ("iCP12 I/O Control\n\nFirst of alll click the red Open button, before anything will work.\nThe default port is set to ; /dev/ttyACM0  Change this if you have a different port.\n\n\nWith Radio Buttons you can set each port as Input or Output and some as Analog ( I O A )\n\nClicking on the Leds will toggle the status (high/low) but only works with ports set as Output ( O )\n\nAll High and All Low also only effects those ports that are set as Output ports.\n\nClicking on the big green and red leds below toggles the leds on the iCP12 (on/off)\n\n")
+      Alignment = Align.Center
+    }
+    Index = 1
+    Text = ("Commands")
+    { PictureBox1 PictureBox
+      MoveScaled(13,2,80,85)
+      Picture = Picture["iCP12.jpg"]
+    }
+    Index = 2
+    Text = ("PWM Cmds")
+    { PictureBox2 PictureBox
+      MoveScaled(15,10,76,34)
+      Picture = Picture["iCP12pwm.jpg"]
+    }
+    Index = 3
+    Text = ("Schematic")
+    { PictureBox3 PictureBox
+      MoveScaled(10,5,94,83)
+      Picture = Picture["iCP12Chematic.jpg"]
+    }
+    Index = 0
+  }
+}

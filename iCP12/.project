@@ -1,0 +1,28 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.5.4
+Title=iCP12 IO Control
+Startup=FMain
+Icon=iCP12.png
+Version=0.0.9
+Component=gb.image
+Component=gb.gui
+Component=gb.form
+Component=gb.net
+TabSize=2
+Maintainer=Chris
+Address=roossien@gmail.com
+License=Public Domain
+PackageName=icp12-0.0.9
+CreateEachDirectory=1
+Packager=1
+Systems=debian,ubuntu
+SameDependencies=1
+SameFiles=1
+Menus=debian:"Applications/Science/Electronics"
+Categories=debian:"Electronics;Science"
+Groups=debian:"electronics"
+ExtraDependencies=debian:"\t\t"
+ExtraFiles=debian:"libiCP12.so\t/usr/lib"
+Menus=ubuntu:"Applications/Science/Electronics"
+Categories=ubuntu:"Electronics;Science"
+Groups=ubuntu:"electronics"

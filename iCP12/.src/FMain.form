@@ -1,0 +1,424 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,65)
+  Icon = Picture["iCP12.png"]
+  Resizable = False
+  { !Timer1 #Timer
+    #MoveScaled(1,1)
+    #Public = True
+    Enabled = True
+    Delay = 100
+  }
+  { A0 Label
+    MoveScaled(2,11,3,4)
+    Text = ("A0")
+  }
+  { A1 Label
+    MoveScaled(2,14,3,4)
+    Text = ("A1")
+  }
+  { A2 Label
+    MoveScaled(2,17,3,4)
+    Text = ("A2")
+  }
+  { A3 Label
+    MoveScaled(2,20,3,4)
+    Text = ("A3")
+  }
+  { A4 Label
+    MoveScaled(2,23,3,4)
+    Text = ("A5")
+  }
+  { A5 Label
+    MoveScaled(2,27,3,4)
+    Text = ("B0")
+  }
+  { A6 Label
+    MoveScaled(2,30,3,4)
+    Text = ("B1")
+  }
+  { A7 Label
+    MoveScaled(2,33,3,4)
+    Text = ("B2")
+  }
+  { A8 Label
+    MoveScaled(2,37,3,4)
+    Text = ("C0")
+  }
+  { A9 Label
+    MoveScaled(2,40,3,4)
+    Text = ("C1")
+  }
+  { A10 Label
+    MoveScaled(2,43,3,4)
+    Text = ("C2")
+  }
+  { A11 Label
+    MoveScaled(2,46,3,4)
+    Text = ("C6")
+  }
+  { A12 Label
+    MoveScaled(2,49,3,4)
+    Text = ("C7")
+  }
+  { DevicePort TextBox
+    MoveScaled(2,3,16,4)
+    Text = ("/dev/ttyACM0")
+  }
+  { Panel1 Panel
+    MoveScaled(81,1,1,1)
+    { SerialPort1 #SerialPort
+      FlowControl = SerialPort.None
+      PortName = "/dev/ttyACM0"
+      Speed = 115200
+    }
+  }
+  { Panel2 Panel
+    MoveScaled(6,11,10,4)
+    { A0o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { A0a RadioButton
+      MoveScaled(6,0,3,4)
+    }
+    { A0i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel3 Panel
+    MoveScaled(6,14,10,4)
+    { A1o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { A1a RadioButton
+      MoveScaled(6,0,3,4)
+    }
+    { A1i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel4 Panel
+    MoveScaled(6,17,10,4)
+    { A2o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { A2a RadioButton
+      MoveScaled(6,0,3,4)
+    }
+    { A2i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel5 Panel
+    MoveScaled(6,20,10,4)
+    { A3o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { A3a RadioButton
+      MoveScaled(6,0,3,4)
+    }
+    { A3i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel6 Panel
+    MoveScaled(6,23,10,4)
+    { A5o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { A5a RadioButton
+      MoveScaled(6,0,3,4)
+    }
+    { A5i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel7 Panel
+    MoveScaled(6,33,10,4)
+    { B2o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { B2a RadioButton
+      MoveScaled(6,0,3,4)
+    }
+    { B2i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel8 Panel
+    MoveScaled(6,27,10,4)
+    { B0o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { B0i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel9 Panel
+    MoveScaled(6,49,10,4)
+    { C7o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { C7i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel10 Panel
+    MoveScaled(6,30,10,4)
+    { B1o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { B1i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel11 Panel
+    MoveScaled(6,37,10,4)
+    { C0o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { C0i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel12 Panel
+    MoveScaled(6,40,10,4)
+    { C1o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { C1i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel13 Panel
+    MoveScaled(6,43,10,4)
+    { C2o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { C2i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Panel14 Panel
+    MoveScaled(6,46,10,4)
+    { C6o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { C6i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
+  }
+  { Label1 Label
+    MoveScaled(6,9,10,2)
+    Text = (" I    O    A")
+  }
+  { RedLed PictureBox
+    MoveScaled(11,56,3,3)
+    Picture = Picture["ledoff.png"]
+  }
+  { GreenLed PictureBox
+    MoveScaled(5,56,3,3)
+    Picture = Picture["ledoffg.png"]
+  }
+  { Led1 PictureBox
+    MoveScaled(18,12,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led2 PictureBox
+    MoveScaled(18,15,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led3 PictureBox
+    MoveScaled(18,18,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led4 PictureBox
+    MoveScaled(18,21,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led5 PictureBox
+    MoveScaled(18,24,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led6 PictureBox
+    MoveScaled(18,28,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led7 PictureBox
+    MoveScaled(18,31,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led8 PictureBox
+    MoveScaled(18,34,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led9 PictureBox
+    MoveScaled(18,38,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led10 PictureBox
+    MoveScaled(18,41,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led11 PictureBox
+    MoveScaled(18,44,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led12 PictureBox
+    MoveScaled(18,47,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Led13 PictureBox
+    MoveScaled(18,50,2.2857,2.2857)
+    Picture = Picture["ledoffs.png"]
+  }
+  { Ana1 Label
+    MoveScaled(22,11,8,4)
+    Text = ("0.0V")
+  }
+  { Ana2 Label
+    MoveScaled(22,14,8,4)
+    Text = ("0.0V")
+  }
+  { Ana3 Label
+    MoveScaled(22,17,8,4)
+    Text = ("0.0V")
+  }
+  { Ana4 Label
+    MoveScaled(22,20,8,4)
+    Text = ("0.0V")
+  }
+  { Ana5 Label
+    MoveScaled(22,23,8,4)
+    Text = ("0.0V")
+  }
+  { Ana6 Label
+    MoveScaled(22,33,8,4)
+    Text = ("0.0V")
+  }
+  { Cmd TextBox
+    MoveScaled(17,55,16,4)
+    Text = ("(ZMDr)")
+  }
+  { Open Button
+    MoveScaled(20,3,8,4)
+    Background = &HFF0000&
+    Text = ("Open")
+  }
+  { Button1 Button
+    MoveScaled(34,55,8,4)
+    Text = ("Send")
+  }
+  { ToggleButton1 Button
+    MoveScaled(33,14,12,4)
+    Text = ("All Input")
+  }
+  { ToggleButton2 Button
+    MoveScaled(33,19,12,4)
+    Text = ("All Output")
+  }
+  { ToggleButton3 Button
+    MoveScaled(33,24,12,4)
+    Text = ("All High")
+  }
+  { ToggleButton4 Button
+    MoveScaled(33,29,12,4)
+    Text = ("All Low")
+  }
+  { ToggleButton5 Button
+    MoveScaled(33,9,12,4)
+    Text = ("All Analog")
+  }
+  { Label2 Label
+    MoveScaled(1,9,4,2)
+    Text = ("Port")
+  }
+  { Label3 Label
+    MoveScaled(22,9,7,2)
+    Text = ("Analog")
+  }
+  { Label4 Label
+    MoveScaled(2,59,14,5)
+    Text = ("Leds\nClick to Toggle")
+    Alignment = Align.Center
+  }
+  { Label5 Label
+    MoveScaled(19,59,10,4)
+    Text = ("Command")
+  }
+  { Label6 Label
+    MoveScaled(45,59,6,4)
+    Text = ("Result")
+  }
+  { Button2 Button
+    MoveScaled(33,3,12,4)
+    Text = ("Help")
+  }
+  { CheckBox1 CheckBox
+    MoveScaled(33,33,11,4)
+    Text = ("Pullup B")
+  }
+  { CheckBox2 CheckBox
+    MoveScaled(21,40,7,4)
+    Text = ("C1")
+  }
+  { CheckBox3 CheckBox
+    MoveScaled(21,43,7,4)
+    Text = ("C2")
+  }
+  { Slider1 Slider
+    MoveScaled(28,40,24,4)
+    Value = 50
+  }
+  { Slider2 Slider
+    MoveScaled(28,43,24,4)
+    Value = 50
+  }
+  { Slider3 Slider
+    MoveScaled(28,47,24,4)
+    MinValue = 3
+    MaxValue = 200
+    Value = 3
+  }
+  { Label7 Label
+    MoveScaled(31,38,6,2)
+    Text = ("PWM")
+  }
+  { Label8 Label
+    MoveScaled(22,48,6,2)
+    Text = ("Freq")
+  }
+  { Procentc0 Label
+    MoveScaled(52,40,7,3)
+    Text = ("50%")
+  }
+  { Procentc1 Label
+    MoveScaled(52,43,7,3)
+    Text = ("50%")
+  }
+  { Frequency Label
+    MoveScaled(52,47,7,3)
+    Text = ("3k")
+  }
+  { Result Label
+    MoveScaled(43,55,19,4)
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(50,10,10,18)
+    Picture = Picture["logo.png"]
+  }
+}

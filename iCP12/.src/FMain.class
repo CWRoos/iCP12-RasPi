@@ -1,0 +1,817 @@
+' Gambas class file
+
+' 
+' 
+Library "libiCP12"
+
+Public Extern icp12open(device As String)
+Public Extern icp12(cmd As String) As String
+Public img_ledoff As Picture = Picture.Load("ledoff.png")
+Public img_ledon As Picture = Picture.Load("ledon.png")
+Public img_ledgoff As Picture = Picture.Load("ledoffg.png")
+Public img_ledgon As Picture = Picture.Load("ledong.png")
+Public img_ledsoff As Picture = Picture.Load("ledoffs.png")
+Public img_ledson As Picture = Picture.Load("ledons.png")
+Public isopen As Integer = 0
+
+Public Sub Open_Click()
+  
+  Dim s As String
+  
+  icp12open(DevicePort.text) 
+  Sleep 0.1
+  s = icp12("(PPBr)")
+  If Mid$(s, 12, 1) == "1" Then
+    RedLed.picture = img_ledon
+  Else
+    RedLed.picture = img_ledoff
+  Endif
+  If Mid$(s, 11, 1) == "1" Then
+    GreenLed.picture = img_ledgon
+  Else
+    GreenLed.picture = img_ledgoff
+  Endif
+  icp12("(PUBd)")
+  icp12("(PM2d)")
+  icp12("(PM1d)")
+  icp12("(PPAw:iiiixixx)")
+  icp12("(PPBw:iiixxxxx)")
+  icp12("(PPCw:iiixxxii)")
+  open.enabled = False
+  open.Background = &H00FF7F&
+  isopen = 1
+  Result.text = icp12(cmd.Text)
+  
+End
+
+Public Sub RedLed_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPBr)")
+  If Mid$(s, 12, 1) == "0" Then
+    icp12("(RB51)")
+    RedLed.picture = img_ledon
+  Else
+    icp12("(RB50)")
+    RedLed.picture = img_ledoff
+  Endif
+  
+End
+
+Public Sub GreenLed_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPBr)")
+  If Mid$(s, 11, 1) == "0" Then
+    icp12("(RB41)")
+    GreenLed.picture = img_ledgon
+  Else
+    icp12("(RB40)")
+    GreenLed.picture = img_ledgoff
+  Endif
+  
+End
+
+Public Sub ToggleButton1_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:iiiixixx)")      
+  icp12("(PPBw:iiixxxxx)")         
+  icp12("(PPCw:iiixxxii)")
+  A0i.value = True
+  A1i.value = True
+  A2i.value = True
+  A3i.value = True
+  A5i.value = True
+  B0i.value = True
+  B1i.value = True
+  B2i.value = True
+  C0i.value = True
+  C1i.value = True
+  C2i.value = True
+  C6i.value = True
+  C7i.value = True
+  
+End
+
+Public Sub ToggleButton2_Click()
+  
+  If isopen == 0 Then Return  
+  icp12("(PPAw:iiiixixx)")      
+  icp12("(PPBw:iiixxxxx)")         
+  icp12("(PPCw:iiixxxii)")
+  icp12("(PPAw:ooooxoxx)")          
+  icp12("(PPBw:oooxxxxx)")     
+  icp12("(PPCw:oooxxxoo)") 
+  A0o.value = True
+  A1o.value = True
+  A2o.value = True
+  A3o.value = True
+  A5o.value = True
+  B0o.value = True
+  B1o.value = True
+  B2o.value = True
+  C0o.value = True
+  C1o.value = True
+  C2o.value = True
+  C6o.value = True
+  C7o.value = True
+  
+End
+
+Public Sub ToggleButton3_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:1111x1xx)")          'set portA as high
+  icp12("(PPBw:111xxxxx)")          'set portB as high
+  icp12("(PPCw:111xxx11)") 
+  
+End
+
+Public Sub ToggleButton4_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:0000x0xx)")          'set portA as low
+  icp12("(PPBw:000xxxxx)")          'set portB as low
+  icp12("(PPCw:000xxx00)")   
+  
+End
+
+Public Sub ToggleButton5_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:aaaaxaxx)")          'set portA as analog port
+  icp12("(PPBw:xxaxxxxx)")          'set pin B2 as analog pin
+  A0a.value = True
+  A1a.value = True
+  A2a.value = True
+  A3a.value = True
+  A5a.value = True
+  B2a.value = True
+  
+End
+
+Public Sub Timer1_Timer()
+  
+  Dim s As String
+  Dim x As Integer
+  
+  If isopen == 0 Then Return
+  
+  s = icp12("(PPAr)")
+  
+  If Mid$(s, 7, 1) == "1" Then
+    Led1.Picture = img_ledson
+  Else
+    Led1.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 8, 1) == "1" Then
+    Led2.Picture = img_ledson
+  Else
+    Led2.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 9, 1) == "1" Then
+    Led3.Picture = img_ledson
+  Else
+    Led3.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 10, 1) == "1" Then
+    Led4.Picture = img_ledson
+  Else
+    Led4.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 12, 1) == "1" Then
+    Led5.Picture = img_ledson
+  Else
+    Led5.Picture = img_ledsoff
+  Endif
+  
+  s = icp12("(PPBr)")
+  
+  If Mid$(s, 7, 1) == "1" Then
+    Led6.Picture = img_ledson
+  Else
+    Led6.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 8, 1) == "1" Then
+    Led7.Picture = img_ledson
+  Else
+    Led7.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 9, 1) == "1" Then
+    Led8.Picture = img_ledson
+  Else
+    Led8.Picture = img_ledsoff
+  Endif
+  
+  s = icp12("(PPCr)")
+  
+  If Mid$(s, 7, 1) == "1" Then
+    Led9.Picture = img_ledson
+  Else
+    Led9.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 8, 1) == "1" Then
+    Led10.Picture = img_ledson
+  Else
+    Led10.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 9, 1) == "1" Then
+    Led11.Picture = img_ledson
+  Else
+    Led11.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 13, 1) == "1" Then
+    Led12.Picture = img_ledson
+  Else
+    Led12.Picture = img_ledsoff
+  Endif
+  If Mid$(s, 14, 1) == "1" Then
+    Led13.Picture = img_ledson
+  Else
+    Led13.Picture = img_ledsoff
+  Endif
+  
+  If A0a.value Then
+    s = icp12("(AA0r)")
+    s = Mid$(s, 7, 6)
+    x = Val(s)
+    s = Format$(x * 5 / 1024, "0.##") & "V"
+    Ana1.text = s
+  Endif
+  If A1a.value Then
+    s = icp12("(AA1r)")
+    s = Mid$(s, 7, 6)
+    x = Val(s)
+    s = Format$(x * 5 / 1024, "0.##") & "V"
+    Ana2.text = s
+  Endif
+  If A2a.value Then
+    s = icp12("(AA2r)")
+    s = Mid$(s, 7, 6)
+    x = Val(s)
+    s = Format$(x * 5 / 1024, "0.##") & "V"
+    Ana3.text = s
+  Endif
+  If A3a.value Then
+    s = icp12("(AA3r)")
+    s = Mid$(s, 7, 6)
+    x = Val(s)
+    s = Format$(x * 5 / 1024, "0.##") & "V"
+    Ana4.text = s
+  Endif
+  If A5a.value Then
+    s = icp12("(AA5r)")
+    s = Mid$(s, 7, 6)
+    x = Val(s)
+    s = Format$(x * 5 / 1024, "0.##") & "V"
+    Ana5.text = s
+  Endif
+  If B2a.value Then
+    s = icp12("(AB2r)")
+    s = Mid$(s, 7, 6)
+    x = Val(s)
+    s = Format$(x * 5 / 1024, "0.##") & "V"
+    Ana6.text = s
+  Endif
+  
+End
+
+Public Sub Button1_Click()
+  
+  If isopen == 0 Then Return
+  Result.text = icp12(cmd.Text)
+  
+End
+
+Public Sub Led1_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPAr)")
+  If Mid$(s, 7, 1) == "0" Then
+    icp12("(RA01)")
+  Else
+    icp12("(RA00)")
+  Endif
+  
+End
+
+Public Sub Led2_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPAr)")
+  If Mid$(s, 8, 1) == "0" Then
+    icp12("(RA11)")
+  Else
+    icp12("(RA10)")
+  Endif
+  
+End
+
+Public Sub Led3_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPAr)")
+  If Mid$(s, 9, 1) == "0" Then
+    icp12("(RA21)")
+  Else
+    icp12("(RA20)")
+  Endif
+  
+End
+
+Public Sub Led4_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPAr)")
+  If Mid$(s, 10, 1) == "0" Then
+    icp12("(RA31)")
+  Else
+    icp12("(RA30)")
+  Endif
+  
+End
+
+Public Sub Led5_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPAr)")
+  If Mid$(s, 12, 1) == "0" Then
+    icp12("(RA51)")
+  Else
+    icp12("(RA50)")
+  Endif
+  
+End
+
+Public Sub Led6_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPBr)")
+  If Mid$(s, 7, 1) == "0" Then
+    icp12("(RB01)")
+  Else
+    icp12("(RB00)")
+  Endif
+  
+End
+
+Public Sub Led7_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPBr)")
+  If Mid$(s, 8, 1) == "0" Then
+    icp12("(RB11)")
+  Else
+    icp12("(RB10)")
+  Endif
+  
+End
+
+Public Sub Led8_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPBr)")
+  If Mid$(s, 9, 1) == "0" Then
+    icp12("(RB21)")
+  Else
+    icp12("(RB20)")
+  Endif
+  
+End
+
+Public Sub Led9_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPCr)")
+  If Mid$(s, 7, 1) == "0" Then
+    icp12("(RC01)")
+  Else
+    icp12("(RC00)")
+  Endif
+  
+End
+
+Public Sub Led10_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPCr)")
+  If Mid$(s, 8, 1) == "0" Then
+    icp12("(RC11)")
+  Else
+    icp12("(RC10)")
+  Endif
+  
+End
+
+Public Sub Led11_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPCr)")
+  If Mid$(s, 9, 1) == "0" Then
+    icp12("(RC21)")
+  Else
+    icp12("(RC20)")
+  Endif
+  
+End
+
+Public Sub Led12_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPCr)")
+  If Mid$(s, 13, 1) == "0" Then
+    icp12("(RC61)")
+  Else
+    icp12("(RC60)")
+  Endif
+  
+End
+
+Public Sub Led13_MouseDown()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  s = icp12("(PPCr)")
+  If Mid$(s, 14, 1) == "0" Then
+    icp12("(RC71)")
+  Else
+    icp12("(RC70)")
+  Endif
+  
+End
+
+Public Sub A0i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:ixxxxxxx)")  
+  
+End
+
+Public Sub A1i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xixxxxxx)")  
+  
+End
+
+Public Sub A2i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxixxxxx)")  
+  
+End
+
+Public Sub A3i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxxixxxx)")  
+  
+End
+
+Public Sub A5i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxxxxixx)")  
+  
+End
+
+Public Sub A0o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:ixxxxxxx)") 
+  icp12("(PPAw:oxxxxxxx)")  
+  
+End
+
+Public Sub A1o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:x1xxxxxx)") 
+  icp12("(PPAw:xoxxxxxx)")  
+  
+End
+
+Public Sub A2o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxixxxxx)") 
+  icp12("(PPAw:xxoxxxxx)")  
+  
+End
+
+Public Sub A3o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxxixxxx)") 
+  icp12("(PPAw:xxxoxxxx)")  
+  
+End
+
+Public Sub A5o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxxxxixx)") 
+  icp12("(PPAw:xxxxxoxx)")  
+  
+End
+
+Public Sub A0a_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:axxxxxxx)")  
+  
+End
+
+Public Sub A1a_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xaxxxxxx)")  
+  
+End
+
+Public Sub A2a_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxaxxxxx)")  
+  
+End
+
+Public Sub A3a_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxxaxxxx)")  
+  
+End
+
+Public Sub A5a_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:xxxxxaxx)")  
+  
+End
+
+Public Sub B0i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:ixxxxxxx)")  
+  
+End
+
+Public Sub B1i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:xixxxxxx)")  
+  
+End
+
+Public Sub B2i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:xxixxxxx)")  
+  
+End
+
+Public Sub B0o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:ixxxxxxx)") 
+  icp12("(PPBw:oxxxxxxx)")  
+  
+End
+
+Public Sub B1o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:x1xxxxxx)") 
+  icp12("(PPBw:xoxxxxxx)")  
+  
+End
+
+Public Sub B2o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:xxixxxxx)") 
+  icp12("(PPBw:xxoxxxxx)")  
+  
+End
+
+Public Sub B2a_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPBw:xxaxxxxx)")  
+  
+End
+
+Public Sub C0i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPAw:ixxxxxxx)")  
+  
+End
+
+Public Sub C1i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xixxxxxx)")  
+  
+End
+
+Public Sub C2i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xxixxxxx)")  
+  
+End
+
+Public Sub C6i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xxxxxxix)")  
+  
+End
+
+Public Sub C7i_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xxxxxxxi)")  
+  
+End
+
+Public Sub C0o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:ixxxxxxx)") 
+  icp12("(PPCw:oxxxxxxx)")  
+  
+End
+
+Public Sub C1o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:x1xxxxxx)") 
+  icp12("(PPCw:xoxxxxxx)")  
+  
+End
+
+Public Sub C2o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xxixxxxx)") 
+  icp12("(PPCw:xxoxxxxx)")  
+  
+End
+
+Public Sub C6o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xxxxxxix)") 
+  icp12("(PPCw:xxxxxxox)")  
+  
+End
+
+Public Sub C7o_Click()
+  
+  If isopen == 0 Then Return
+  icp12("(PPCw:xxxxxxxi)") 
+  icp12("(PPCw:xxxxxxxo)")  
+  
+End
+
+Public Sub CheckBox1_Click()
+  
+  If isopen == 0 Then Return
+  If CheckBox1.value Then
+    icp12("(PUBe)")
+    icp12("(PUBw:11111111)")
+  Else
+    icp12("(PUBd)")
+  Endif
+  
+End
+
+Public Sub CheckBox3_Click()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  If CheckBox3.value Then
+    icp12("(PM1e)")
+    s = Format$(Slider3.value, "0##k")
+    s = "(PM1f:" & s & ")"
+    icp12(s)
+    s = Format$(Slider1.value * 1023 / 100, "0###")
+    s = "(PM1r:" & s & ")"
+    icp12(s)
+  Else
+    icp12("(PM1d)")
+  Endif
+  
+End
+
+Public Sub CheckBox2_Click()
+  
+  Dim s As String
+  
+  If isopen == 0 Then Return
+  If CheckBox2.value Then
+    icp12("(PM2e)")
+    s = Format$(Slider3.value, "0##k")
+    s = "(PM2f:" & s & ")"
+    icp12(s)
+    s = Format$(Slider2.value * 1023 / 100, "0###")
+    s = "(PM2r:" & s & ")"
+    icp12(s)
+  Else
+    icp12("(PM2d)")
+  Endif
+  
+End
+
+Public Sub Slider1_Change()
+  
+  Dim s As String
+  
+  Procentc0.text = Slider1.value & "%"
+  If isopen == 0 Then Return
+  If CheckBox2.value Then
+    s = Format$(Slider1.value * 1023 / 100, "0###")
+    s = "(PM2r:" & s & ")"
+    icp12(s)
+  Endif
+  
+End
+
+Public Sub Slider2_Change()
+  
+  Dim s As String
+  
+  Procentc1.text = Slider2.value & "%"
+  If isopen == 0 Then Return
+  If CheckBox3.value Then
+    s = Format$(Slider2.value * 1023 / 100, "0###")
+    s = "(PM1r:" & s & ")"
+    icp12(s)
+  Endif
+  
+End
+
+Public Sub Slider3_Change()
+  
+  Dim s As String
+  
+  Frequency.text = Slider3.value & "k"
+  If isopen == 0 Then Return
+  If CheckBox3.value Then
+    s = Format$(Slider3.value, "0##k")
+    s = "(PM2f:" & s & ")"
+    icp12(s)
+  Endif
+  If CheckBox3.value Then
+    s = Format$(Slider3.value, "0##k")
+    s = "(PM1f:" & s & ")"
+    icp12(s)
+  Endif
+  
+End
+
+Public Sub Button2_Click()
+  
+  Form1.show
+  
+End
+
+Public Sub Form_Activate()
+
+ ' Open_Click()
+
+End
