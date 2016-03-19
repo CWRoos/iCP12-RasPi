@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,64,65)
+  MoveScaled(21.4286,7.1429,64,65)
   Icon = Picture["iCP12.png"]
   Resizable = False
   { !Timer1 #Timer
@@ -188,26 +188,6 @@
       MoveScaled(3,0,3,4)
     }
     { C0i RadioButton
-      MoveScaled(0,0,3,4)
-      Value = True
-    }
-  }
-  { Panel12 Panel
-    MoveScaled(6,40,10,4)
-    { C1o RadioButton
-      MoveScaled(3,0,3,4)
-    }
-    { C1i RadioButton
-      MoveScaled(0,0,3,4)
-      Value = True
-    }
-  }
-  { Panel13 Panel
-    MoveScaled(6,43,10,4)
-    { C2o RadioButton
-      MoveScaled(3,0,3,4)
-    }
-    { C2i RadioButton
       MoveScaled(0,0,3,4)
       Value = True
     }
@@ -420,5 +400,36 @@
   { PictureBox1 PictureBox
     MoveScaled(50,10,10,18)
     Picture = Picture["logo.png"]
+  }
+  { Panel12 Panel
+    MoveScaled(6,40,10,4)
+    { Panel13 Panel
+      MoveScaled(0,0,10,4)
+      { C1o RadioButton
+        MoveScaled(3,0,3,4)
+      }
+      { C1hid RadioButton
+        MoveScaled(6,0,3,4)
+        Visible = False
+      }
+      { C1i RadioButton
+        MoveScaled(0,0,3,4)
+        Value = True
+      }
+    }
+  }
+  { Panel15 Panel
+    MoveScaled(6,43,10,4)
+    { C2o RadioButton
+      MoveScaled(3,0,3,4)
+    }
+    { C2hid RadioButton
+      MoveScaled(6,0,3,4)
+      Visible = False
+    }
+    { C2i RadioButton
+      MoveScaled(0,0,3,4)
+      Value = True
+    }
   }
 }

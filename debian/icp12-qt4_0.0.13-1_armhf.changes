@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 19 Mar 2016 12:00:00 +0000
+Source: icp12-qt4
+Binary: icp12-qt4
+Architecture: source all
+Version: 0.0.13-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chris <roossien@gmail.com>
+Changed-By: Chris <roossien@gmail.com>
+Description:
+ icp12-qt4  - This is the qt4 support for iCP12 IO Control
+Changes:
+ icp12-qt4 (0.0.13-1) unstable; urgency=low
+ .
+   * New release version
+Checksums-Sha1:
+ 768db035d6dc72bdf7c769744f4d3390c5b3248a 520 icp12-qt4_0.0.13-1.dsc
+ bc53d9f4df500ce7ba6cf1ea24a8cc4865eb00a6 801 icp12-qt4_0.0.13-1.tar.gz
+ 4dc42257d33eb0eb2bd5e4346e66cef3f13010d0 1280 icp12-qt4_0.0.13-1_all.deb
+Checksums-Sha256:
+ 4206d33a1513c20818b3e7034504af08108383da525b1dd496167d0e6062e04a 520 icp12-qt4_0.0.13-1.dsc
+ 05efa68c55fd5913358c6541595f935f762ba82f2bd9d5fb5cbcc3694d032d41 801 icp12-qt4_0.0.13-1.tar.gz
+ 2ef080199da11f0d372ef1c7f4d9cc41317fcc591bff7a923cd298267efbe35c 1280 icp12-qt4_0.0.13-1_all.deb
+Files:
+ debaa0bb6fd4e228fcb0241e5a2675fa 520 contrib/electronics optional icp12-qt4_0.0.13-1.dsc
+ eed6379da2c1afb18586ccb89568ecee 801 contrib/electronics optional icp12-qt4_0.0.13-1.tar.gz
+ a2b0ad6b12e99bc1a3a808cacc8a8989 1280 contrib/electronics optional icp12-qt4_0.0.13-1_all.deb

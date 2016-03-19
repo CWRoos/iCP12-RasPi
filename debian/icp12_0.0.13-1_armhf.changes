@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 19 Mar 2016 12:00:00 +0000
+Source: icp12
+Binary: icp12
+Architecture: source all
+Version: 0.0.13-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chris <roossien@gmail.com>
+Changed-By: Chris <roossien@gmail.com>
+Description:
+ icp12      - iCP12 IO Control
+Changes:
+ icp12 (0.0.13-1) unstable; urgency=low
+ .
+   * New release version
+Checksums-Sha1:
+ f1a646220a6019c505ed09c3fb1f9a705dfc63de 956 icp12_0.0.13-1.dsc
+ 99e681c41ce479d7bf93dd1024cc31cc87ee4e11 1119 icp12_0.0.13-1.diff.gz
+ a1974b927a6626c2efe62fd6466d577cc2bfe699 362120 icp12_0.0.13-1_all.deb
+Checksums-Sha256:
+ 74a369695ad0693743b31f54fba2106a702a468b141a77e9f608e62f1994763b 956 icp12_0.0.13-1.dsc
+ 9d64d5473aa010a0ff2018a084953e455689b39de2aa93902fdcefbd33c0d297 1119 icp12_0.0.13-1.diff.gz
+ 79f1a94c8bfa96cb6108a36c1bb7ef397438d865233cdc1e06e1be60153eaefd 362120 icp12_0.0.13-1_all.deb
+Files:
+ 2e6e9cb0ef855f022b8cd9e0f657f9bf 956 contrib/electronics optional icp12_0.0.13-1.dsc
+ 9b29059e0fcbc8d265d70278852b4fb3 1119 contrib/electronics optional icp12_0.0.13-1.diff.gz
+ 85598c062c0a5ca22cac73eda0f9dd20 362120 contrib/electronics optional icp12_0.0.13-1_all.deb

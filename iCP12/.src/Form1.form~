@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,113,92.8571)
+  Icon = Picture["iCP12.png"]
   { TabStrip1 TabStrip
     MoveScaled(0,0,118,92.8571)
     Count = 4
@@ -19,7 +20,7 @@
     Index = 1
     Text = ("Commands")
     { PictureBox1 PictureBox
-      MoveScaled(5,3,80,85)
+      MoveScaled(13,2,80,85)
       Picture = Picture["iCP12.jpg"]
     }
     Index = 2

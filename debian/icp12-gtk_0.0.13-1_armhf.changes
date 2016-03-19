@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 19 Mar 2016 12:00:00 +0000
+Source: icp12-gtk
+Binary: icp12-gtk
+Architecture: source all
+Version: 0.0.13-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chris <roossien@gmail.com>
+Changed-By: Chris <roossien@gmail.com>
+Description:
+ icp12-gtk  - This is the gtk support for iCP12 IO Control
+Changes:
+ icp12-gtk (0.0.13-1) unstable; urgency=low
+ .
+   * New release version
+Checksums-Sha1:
+ fb9aff9885c888b14bfedaea6236bc7fb32ddf80 520 icp12-gtk_0.0.13-1.dsc
+ 991073f8c7b512763494bdab279930f4af02e614 802 icp12-gtk_0.0.13-1.tar.gz
+ 9c08b4c645b9f7b88d6e32702628698a62ce501d 1284 icp12-gtk_0.0.13-1_all.deb
+Checksums-Sha256:
+ ef0034781d41ad588a1bf6d500742e3bebc31739a6e94d03c4958e0ce6d231ce 520 icp12-gtk_0.0.13-1.dsc
+ ac7b9ccf4f278e27b8e3c13c989c5f72f7b706c27c45878cdb51df4ed71c2922 802 icp12-gtk_0.0.13-1.tar.gz
+ d5d1eab284d8c865c1f1881f31854e3943e2980af5b959a7dcdd7d0b8bb52465 1284 icp12-gtk_0.0.13-1_all.deb
+Files:
+ ff25fafc4411bf7b982820aac71692b2 520 contrib/electronics optional icp12-gtk_0.0.13-1.dsc
+ 27fd7a3e98d72d5826d9265a195996c7 802 contrib/electronics optional icp12-gtk_0.0.13-1.tar.gz
+ 5f8fbbdb54b765e7deefa6097931dab0 1284 contrib/electronics optional icp12-gtk_0.0.13-1_all.deb

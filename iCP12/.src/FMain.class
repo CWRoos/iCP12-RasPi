@@ -79,9 +79,19 @@ End
 Public Sub ToggleButton1_Click()
   
   If isopen == 0 Then Return
-  icp12("(PPAw:iiiixixx)")      
+  icp12("(PM2d)")
+  icp12("(PM1d)")
+  icp12("(PPAw:iiiixixx)") 
+  If CheckBox1.value Then
+    icp12("(PUBe)")
+    icp12("(PUBw:11111111)")
+  Else
+    icp12("(PUBd)")
+  Endif 
   icp12("(PPBw:iiixxxxx)")         
+  CheckBox2.value = False     
   icp12("(PPCw:iiixxxii)")
+  CheckBox3.value = False
   A0i.value = True
   A1i.value = True
   A2i.value = True
@@ -100,13 +110,23 @@ End
 
 Public Sub ToggleButton2_Click()
   
-  If isopen == 0 Then Return  
-  icp12("(PPAw:iiiixixx)")      
-  icp12("(PPBw:iiixxxxx)")         
-  icp12("(PPCw:iiixxxii)")
+  If isopen == 0 Then Return
+  icp12("(PM2d)")
+  icp12("(PPAw:iiiixixx)")  
   icp12("(PPAw:ooooxoxx)")          
+  If CheckBox1.value Then
+    icp12("(PUBe)")
+    icp12("(PUBw:11111111)")
+  Else
+    icp12("(PUBd)")
+  Endif
+  icp12("(PPBw:iiixxxxx)")
   icp12("(PPBw:oooxxxxx)")     
-  icp12("(PPCw:oooxxxoo)") 
+  CheckBox2.value = False
+  icp12("(PM1d)")
+  icp12("(PPCw:iiixxxii)")
+  icp12("(PPCw:oooxxxoo)")
+  CheckBox3.value = False 
   A0o.value = True
   A1o.value = True
   A2o.value = True
@@ -144,7 +164,14 @@ End
 Public Sub ToggleButton5_Click()
   
   If isopen == 0 Then Return
+  
   icp12("(PPAw:aaaaxaxx)")          'set portA as analog port
+  If CheckBox1.value Then
+    icp12("(PUBe)")
+    icp12("(PUBw:11111111)")
+  Else
+    icp12("(PUBd)")
+  Endif  
   icp12("(PPBw:xxaxxxxx)")          'set pin B2 as analog pin
   A0a.value = True
   A1a.value = True
@@ -509,23 +536,23 @@ Public Sub A0o_Click()
   
   If isopen == 0 Then Return
   icp12("(PPAw:ixxxxxxx)") 
-  icp12("(PPAw:oxxxxxxx)")  
+  icp12("(PPAw:oxxxxxxx)") 
   
 End
 
 Public Sub A1o_Click()
   
   If isopen == 0 Then Return
-  icp12("(PPAw:x1xxxxxx)") 
-  icp12("(PPAw:xoxxxxxx)")  
+  icp12("(PPAw:xixxxxxx)") 
+  icp12("(PPAw:xoxxxxxx)") 
   
 End
 
 Public Sub A2o_Click()
   
-  If isopen == 0 Then Return
-  icp12("(PPAw:xxixxxxx)") 
-  icp12("(PPAw:xxoxxxxx)")  
+  If isopen == 0 Then Return 
+  icp12("(PPAw:xxixxxxx)")
+  icp12("(PPAw:xxoxxxxx)")
   
 End
 
@@ -533,7 +560,7 @@ Public Sub A3o_Click()
   
   If isopen == 0 Then Return
   icp12("(PPAw:xxxixxxx)") 
-  icp12("(PPAw:xxxoxxxx)")  
+  icp12("(PPAw:xxxoxxxx)") 
   
 End
 
@@ -613,7 +640,7 @@ Public Sub B1o_Click()
   
   If isopen == 0 Then Return
   icp12("(PPBw:x1xxxxxx)") 
-  icp12("(PPBw:xoxxxxxx)")  
+  icp12("(PPBw:xoxxxxxx)")   
   
 End
 
@@ -621,7 +648,7 @@ Public Sub B2o_Click()
   
   If isopen == 0 Then Return
   icp12("(PPBw:xxixxxxx)") 
-  icp12("(PPBw:xxoxxxxx)")  
+  icp12("(PPBw:xxoxxxxx)")   
   
 End
 
@@ -642,14 +669,18 @@ End
 Public Sub C1i_Click()
   
   If isopen == 0 Then Return
+  icp12("(PM2d)")
   icp12("(PPCw:xixxxxxx)")  
+  CheckBox2.value = False
   
 End
 
 Public Sub C2i_Click()
   
   If isopen == 0 Then Return
+  icp12("(PM1d)")
   icp12("(PPCw:xxixxxxx)")  
+  CheckBox3.value = False
   
 End
 
@@ -678,16 +709,26 @@ End
 Public Sub C1o_Click()
   
   If isopen == 0 Then Return
+  icp12("(PM2d)")
   icp12("(PPCw:x1xxxxxx)") 
   icp12("(PPCw:xoxxxxxx)")  
+  CheckBox2.value = False
+  icp12("(PM2d)")
+  icp12("(PPCw:x1xxxxxx)") 
+  icp12("(PPCw:xoxxxxxx)") 
   
 End
 
 Public Sub C2o_Click()
   
   If isopen == 0 Then Return
+  icp12("(PM1d)")
   icp12("(PPCw:xxixxxxx)") 
   icp12("(PPCw:xxoxxxxx)")  
+  CheckBox3.value = False
+  icp12("(PM1d)")
+  icp12("(PPCw:xxixxxxx)") 
+  icp12("(PPCw:xxoxxxxx)")
   
 End
 
@@ -732,6 +773,7 @@ Public Sub CheckBox3_Click()
     s = Format$(Slider1.value * 1023 / 100, "0###")
     s = "(PM1r:" & s & ")"
     icp12(s)
+    C2hid.value = True
   Else
     icp12("(PM1d)")
   Endif
@@ -751,6 +793,7 @@ Public Sub CheckBox2_Click()
     s = Format$(Slider2.value * 1023 / 100, "0###")
     s = "(PM2r:" & s & ")"
     icp12(s)
+    C1hid.value = True
   Else
     icp12("(PM2d)")
   Endif
@@ -811,7 +854,7 @@ Public Sub Button2_Click()
 End
 
 Public Sub Form_Activate()
-
- ' Open_Click()
-
+  
+'  Open_Click()
+  
 End

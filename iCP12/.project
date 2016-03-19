@@ -3,7 +3,7 @@
 Title=iCP12 IO Control
 Startup=FMain
 Icon=iCP12.png
-Version=0.0.9
+Version=0.0.13
 Component=gb.image
 Component=gb.gui
 Component=gb.form
@@ -12,7 +12,7 @@ TabSize=2
 Maintainer=Chris
 Address=roossien@gmail.com
 License=Public Domain
-PackageName=icp12-0.0.9
+PackageName=icp12-0.0.13
 CreateEachDirectory=1
 Packager=1
 Systems=debian,ubuntu

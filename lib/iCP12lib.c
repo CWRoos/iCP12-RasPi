@@ -104,6 +104,7 @@ char *icp12 (char *cmd)
 	if (bytes <= 0) {
 		fprintf (stderr, "Error reading from device, command: %s\n", cmd);
 	}
+	usleep (1000);
 	return receive;
 }
 

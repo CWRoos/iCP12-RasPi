@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,113,92.8571)
+  MoveScaled(21.4286,1.4286,113,92.8571)
   Icon = Picture["iCP12.png"]
   { TabStrip1 TabStrip
     MoveScaled(0,0,118,92.8571)
